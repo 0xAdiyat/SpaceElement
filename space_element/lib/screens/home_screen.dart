@@ -8,8 +8,28 @@ import 'package:space_element/utils/colors.dart';
 import 'package:space_element/utils/size_config.dart';
 import 'package:space_element/widgets/duel_text.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late PageController _pageController;
+  final GlobalKey _globalKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.8);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,36 +126,39 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 31,
               ),
-              Expanded(
-                child: ListView.separated(
+              SizedBox(
+                height: SizeConfig.safeBlockVertical * 50,
+                child: PageView.builder(
                   scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.all(8),
                   itemCount: planetList.length,
+                  controller: _pageController,
                   itemBuilder: (context, index) {
                     final bool isCenter = index == 1;
-                    return Text(planetList[index],
-                        style: TextStyle(
-                          fontSize: isCenter ? 17 : 13,
-                          color: isCenter
-                              ? whiteColor
-                              : whiteColor.withOpacity(0.6),
-                          fontFamily: "Mark",
-                        ));
+                    return Column(
+                      children: [
+                        Text(planetList[index],
+                            style: TextStyle(
+                              fontSize: isCenter ? 17 : 13,
+                              color: isCenter
+                                  ? whiteColor
+                                  : whiteColor.withOpacity(0.6),
+                              fontFamily: "Mark",
+                            )),
+                        Container(
+                          height: 323,
+                          width: 323,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                      'lib/assets/images/earth.png'))),
+                        ),
+                      ],
+                    );
                   },
-                  separatorBuilder: (context, index) =>
-                      SizedBox(width: SizeConfig.blockSizeHorizontal * 35),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Align(
-                alignment: Alignment.topCenter,
-                child: Image(
-                  image: AssetImage('lib/assets/images/earth.png'),
                 ),
               ),
             ],
