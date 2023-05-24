@@ -20,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController planetTxtController = ScrollController();
   late PageController planetController;
+  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -60,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: primaryColor,
       body: Container(
         height: SizeConfig.screenHeight, // Responsive height
@@ -219,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           lineHeight: 0.9,
                         ),
                         SizedBox(
-                          height: SizeConfig.safeBlockVertical * 2,
+                          height: SizeConfig.safeBlockVertical * 1.5,
                         ),
                         Container(
                           width: 280,
@@ -237,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: whiteColor),
                               ),
                               SizedBox(
-                                height: SizeConfig.safeBlockVertical * 2,
+                                height: SizeConfig.safeBlockVertical * 1.8,
                               ),
                               Row(
                                 children: [
@@ -266,6 +268,33 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: whiteColor,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search, color: unselectedIconColor),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings, color: unselectedIconColor),
+            label: '',
+          ),
+        ],
       ),
     );
   }
