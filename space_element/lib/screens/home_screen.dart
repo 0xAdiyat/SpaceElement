@@ -93,7 +93,8 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
         child: FrostedBottomBar(
-          bottom: 0,
+          bottom: -3,
+          alignment: Alignment.bottomCenter,
           width: SizeConfig.screenWidth,
           bottomBarColor: bottomNavBarColor.withOpacity(0.5),
           sigmaX: 2,
@@ -109,9 +110,9 @@ class _HomeScreenState extends State<HomeScreen>
                     Padding(
                       padding: EdgeInsets.only(
                         top: SizeConfig.safeBlockVertical *
-                            4.6, // Responsive padding
+                            5, // Responsive padding
                         left: SizeConfig.safeBlockHorizontal *
-                            4.6, // Responsive padding
+                            5, // Responsive padding
                         right: SizeConfig.safeBlockHorizontal *
                             16, // Responsive padding
                       ),
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
                     SizedBox(
-                      height: SizeConfig.safeBlockVertical * 2,
+                      height: SizeConfig.safeBlockVertical * 2.5,
                     ),
                     SingleChildScrollView(
                       physics: BouncingScrollPhysics(),
@@ -248,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                left: SizeConfig.safeBlockHorizontal * 12,
+                                left: SizeConfig.safeBlockHorizontal * 13,
                                 top: SizeConfig.safeBlockHorizontal * 1),
                             child: Align(
                               alignment: Alignment.topLeft,
@@ -263,10 +264,10 @@ class _HomeScreenState extends State<HomeScreen>
                                     lastTxtFontSize: 45,
                                     firstTxtFontFamily: 'Gilroy',
                                     lastTxtFontFamily: 'Mark',
-                                    lineHeight: 0.9,
+                                    lineHeight: 0.85,
                                   ),
                                   SizedBox(
-                                    height: SizeConfig.safeBlockVertical * 1.5,
+                                    height: SizeConfig.safeBlockVertical * 1,
                                   ),
                                   Container(
                                     width: 280,
