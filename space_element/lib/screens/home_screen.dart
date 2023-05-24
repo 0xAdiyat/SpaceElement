@@ -2,12 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:space_element/data/dummy_data.dart';
 import 'package:space_element/utils/colors.dart';
 import 'package:space_element/utils/size_config.dart';
 import 'package:space_element/widgets/duel_text.dart';
-import 'package:space_element/widgets/parallax_flow_delegate.dart';
+import 'package:space_element/widgets/earth_rotation_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,18 +18,43 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late PageController _pageController;
+  ScrollController planetTxtController = ScrollController();
+  late PageController planetController;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 0.8);
+
+    planetController = PageController();
+
+    // Listen to the scroll events of controller1
+    planetTxtController.addListener(() {
+      if (planetTxtController.position.userScrollDirection ==
+              ScrollDirection.forward ||
+          planetTxtController.position.userScrollDirection ==
+              ScrollDirection.reverse) {
+        // Update the scroll position of controller2
+        planetController.jumpTo(planetTxtController.offset);
+      }
+    });
+
+    // Listen to the scroll events of controller2
+    planetController.addListener(() {
+      if (planetController.position.userScrollDirection ==
+              ScrollDirection.forward ||
+          planetController.position.userScrollDirection ==
+              ScrollDirection.reverse) {
+        // Update the scroll position of controller1
+        planetTxtController.jumpTo(planetController.offset);
+      }
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _pageController.dispose();
+    planetController.dispose();
+    planetTxtController.dispose();
   }
 
   @override
@@ -129,38 +155,49 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 31,
               ),
-              SizedBox(
-                height: SizeConfig.safeBlockVertical * 50,
-                child: PageView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: planetList.length,
-                  controller: _pageController,
-                  itemBuilder: (context, index) {
-                    final bool isCenter = index == 1;
-                    return Column(
-                      children: [
-                        Text(planetList[index],
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: SizeConfig.safeBlockVertical * 5,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: planetList.length,
+                      controller: planetTxtController,
+                      itemBuilder: (context, index) {
+                        final bool isCenter = index == 1;
+                        return Text(planetList[index],
                             style: TextStyle(
-                              fontSize: isCenter ? 17 : 13,
+                              fontSize: isCenter ? 17 : 14,
                               color: isCenter
                                   ? whiteColor
                                   : whiteColor.withOpacity(0.6),
                               fontFamily: "Mark",
-                            )),
-                        Container(
-                          height: 323,
-                          width: 323,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      'lib/assets/images/earth.png'))),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ),
+                            ));
+                      },
+                      separatorBuilder: (context, index) => SizedBox(
+                          width: SizeConfig.blockSizeHorizontal * 32.5),
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.safeBlockVertical * 45,
+                    child: PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: planetList.length,
+                      physics: const BouncingScrollPhysics(),
+                      controller: planetController,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          "lib/assets/images/earth.png",
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
