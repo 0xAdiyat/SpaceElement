@@ -7,6 +7,7 @@ import 'package:space_element/data/dummy_data.dart';
 import 'package:space_element/utils/colors.dart';
 import 'package:space_element/utils/size_config.dart';
 import 'package:space_element/widgets/duel_text.dart';
+import 'package:space_element/widgets/parallax_flow_delegate.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late PageController _pageController;
-  final GlobalKey _globalKey = GlobalKey();
 
   @override
   void initState() {
