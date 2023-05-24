@@ -4,15 +4,17 @@ class DuelText extends StatelessWidget {
   final String firstTxt, lastTxt;
   final double firstTxtFontSize, lastTxtFontSize;
   final String firstTxtFontFamily, lastTxtFontFamily;
+  double? lineHeight;
 
-  const DuelText(
+  DuelText(
       {Key? key,
       required this.firstTxt,
       required this.lastTxt,
       required this.firstTxtFontSize,
       required this.lastTxtFontSize,
       required this.firstTxtFontFamily,
-      required this.lastTxtFontFamily})
+      required this.lastTxtFontFamily,
+      this.lineHeight = 0})
       : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class DuelText extends StatelessWidget {
             style: TextStyle(
               fontSize: firstTxtFontSize,
               fontFamily: firstTxtFontFamily,
+              height: lineHeight,
             ),
           ),
           TextSpan(
@@ -32,6 +35,7 @@ class DuelText extends StatelessWidget {
             style: TextStyle(
               fontSize: lastTxtFontSize,
               fontFamily: lastTxtFontFamily,
+              height: lineHeight,
             ),
           ),
         ],

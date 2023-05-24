@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 width: SizeConfig.safeBlockHorizontal * 70,
-                height: SizeConfig.safeBlockVertical * 5.5,
+                height: SizeConfig.safeBlockVertical * 4.5,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(22),
                   child: BackdropFilter(
@@ -197,6 +197,71 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: SizeConfig.safeBlockHorizontal * 12,
+                      top: SizeConfig.safeBlockHorizontal * 1),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        DuelText(
+                          firstTxt: "Earth",
+                          lastTxt: "\nPlanet",
+                          firstTxtFontSize: 45,
+                          lastTxtFontSize: 45,
+                          firstTxtFontFamily: 'Gilroy',
+                          lastTxtFontFamily: 'Mark',
+                          lineHeight: 0.9,
+                        ),
+                        SizedBox(
+                          height: SizeConfig.safeBlockVertical * 2,
+                        ),
+                        Container(
+                          width: 280,
+                          padding: EdgeInsets.only(
+                              left: SizeConfig.safeBlockHorizontal * 1),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant sem ut sit fames.",
+                                style: TextStyle(
+                                    fontFamily: 'Mark',
+                                    fontSize: 12,
+                                    color: whiteColor),
+                              ),
+                              SizedBox(
+                                height: SizeConfig.safeBlockVertical * 2,
+                              ),
+                              Row(
+                                children: [
+                                  const Text(
+                                    "View more",
+                                    style: TextStyle(
+                                        fontFamily: 'Gilroy',
+                                        fontSize: 15,
+                                        color: whiteColor),
+                                  ),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                          CupertinoIcons.chevron_forward,
+                                          color: whiteColor))
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               )
             ],
           ),
