@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class EarthRotationWidget extends StatefulWidget {
+  const EarthRotationWidget({super.key});
+
   @override
   _EarthRotationWidgetState createState() => _EarthRotationWidgetState();
 }
