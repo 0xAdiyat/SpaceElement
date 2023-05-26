@@ -27,11 +27,18 @@ class UIConst {
 
   static ({
     String bgHome,
-    String earth,
+    String bgExplore,
     String menu,
   }) images = (
     bgHome: "lib/assets/images/home_bg.png",
-    earth: "lib/assets/images/earth.png",
+    bgExplore: "lib/assets/images/explore_bg.png",
     menu: "lib/assets/icons/menu.svg",
   );
+
+  static List<Map<String, dynamic>> planetImgList = [
+    {
+      'planet': "lib/assets/images/earth.png",
+      'planetName': "earth",
+    },
+  ];
 }

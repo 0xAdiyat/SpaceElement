@@ -13,6 +13,7 @@ import 'package:floating_frosted_bottom_bar/floating_frosted_bottom_bar.dart';
 
 import '../widgets/custom_icon_tab_bar.dart';
 import '../widgets/transparent_appbar.dart';
+import 'explore_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -183,9 +184,29 @@ class _HomeScreenState extends State<HomeScreen>
                               physics: const BouncingScrollPhysics(),
                               controller: planetController,
                               itemBuilder: (context, index) {
-                                return Image.asset(
-                                  UIConst.images.earth,
-                                  fit: BoxFit.cover,
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ExploreScreen(
+                                          planetImg: UIConst
+                                              .planetImgList[index]['planet'],
+                                          planetName:
+                                              UIConst.planetImgList[index]
+                                                  ['planetName'],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Hero(
+                                    tag: UIConst.planetImgList[index]
+                                        ['planetName'],
+                                    child: Image.asset(
+                                      UIConst.planetImgList[index]['planet'],
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 );
                               },
                             ),
