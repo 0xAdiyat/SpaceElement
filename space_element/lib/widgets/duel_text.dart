@@ -4,9 +4,9 @@ class DuelText extends StatelessWidget {
   final String firstTxt, lastTxt;
   final double firstTxtFontSize, lastTxtFontSize;
   final String firstTxtFontFamily, lastTxtFontFamily;
-  double? lineHeight;
+  final double? lineHeight;
 
-  DuelText(
+  const DuelText(
       {Key? key,
       required this.firstTxt,
       required this.lastTxt,

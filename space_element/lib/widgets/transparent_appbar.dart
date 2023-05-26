@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:space_element/utils/constants/ui_constants.dart';
 
 import '../utils/size_config.dart';
 import 'duel_text.dart';
@@ -30,8 +31,8 @@ class TransparentAppbar extends StatelessWidget {
             lastTxt: 'Element',
             firstTxtFontSize: SizeConfig.safeBlockHorizontal * 6,
             lastTxtFontSize: SizeConfig.safeBlockHorizontal * 6,
-            firstTxtFontFamily: 'Gilroy',
-            lastTxtFontFamily: 'Mark',
+            firstTxtFontFamily: UIConst.font.gilroy,
+            lastTxtFontFamily: UIConst.font.mark,
           ),
           centerTitle: true,
           leading: IconButton(

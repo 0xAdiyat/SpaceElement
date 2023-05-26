@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:space_element/data/dummy_data.dart';
 import 'package:space_element/utils/colors.dart';
+import 'package:space_element/utils/constants/ui_constants.dart';
 import 'package:space_element/utils/size_config.dart';
 import 'package:space_element/widgets/duel_text.dart';
 import 'package:floating_frosted_bottom_bar/floating_frosted_bottom_bar.dart';
@@ -89,8 +90,8 @@ class _HomeScreenState extends State<HomeScreen>
         alignment: Alignment.bottomCenter,
         width: SizeConfig.screenWidth,
         bottomBarColor: bottomNavBarColor.withOpacity(0.5),
-        sigmaX: 2,
-        sigmaY: 2,
+        sigmaX: UIConst.sigmaXY.frostedBar,
+        sigmaY: UIConst.sigmaXY.frostedBar,
         hideOnScroll: true,
         body: (context, controller) => TabBarView(
             controller: tabController,
@@ -111,9 +112,8 @@ class _HomeScreenState extends State<HomeScreen>
                           borderRadius: BorderRadius.circular(22),
                           child: BackdropFilter(
                             filter: ImageFilter.blur(
-                                sigmaX: 5,
-                                sigmaY:
-                                    5), // Adjust the sigma values for desired blur intensity
+                                sigmaX: UIConst.sigmaXY.glassSearchBar,
+                                sigmaY: UIConst.sigmaXY.glassSearchBar),
                             child: Container(
                               color: whiteColor.withOpacity(0.2),
                               child: Padding(
@@ -133,9 +133,9 @@ class _HomeScreenState extends State<HomeScreen>
                                     Text(
                                       "Search your favorite planet",
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: UIConst.constSize.font12,
                                         color: whiteColor.withOpacity(0.5),
-                                        fontFamily: "Mark",
+                                        fontFamily: UIConst.font.mark,
                                       ),
                                     )
                                   ],
@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen>
                                       color: isCenter
                                           ? whiteColor
                                           : whiteColor.withOpacity(0.6),
-                                      fontFamily: "Mark",
+                                      fontFamily: UIConst.font.mark,
                                     ));
                               },
                               separatorBuilder: (context, index) => SizedBox(
@@ -205,10 +205,10 @@ class _HomeScreenState extends State<HomeScreen>
                               DuelText(
                                 firstTxt: "Earth",
                                 lastTxt: "\nPlanet",
-                                firstTxtFontSize: 45,
-                                lastTxtFontSize: 45,
-                                firstTxtFontFamily: 'Gilroy',
-                                lastTxtFontFamily: 'Mark',
+                                firstTxtFontSize: UIConst.constSize.font45,
+                                lastTxtFontSize: UIConst.constSize.font45,
+                                firstTxtFontFamily: UIConst.font.gilroy,
+                                lastTxtFontFamily: UIConst.font.mark,
                                 lineHeight: 0.85,
                               ),
                               SizedBox(
@@ -222,11 +222,11 @@ class _HomeScreenState extends State<HomeScreen>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    const Text(
+                                    Text(
                                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitant sem ut sit fames.",
                                       style: TextStyle(
-                                          fontFamily: 'Mark',
-                                          fontSize: 12,
+                                          fontFamily: UIConst.font.mark,
+                                          fontSize: UIConst.constSize.font12,
                                           color: whiteColor),
                                     ),
                                     SizedBox(
@@ -235,10 +235,10 @@ class _HomeScreenState extends State<HomeScreen>
                                     ),
                                     Row(
                                       children: [
-                                        const Text(
+                                        Text(
                                           "View more",
                                           style: TextStyle(
-                                              fontFamily: 'Gilroy',
+                                              fontFamily: UIConst.font.gilroy,
                                               fontSize: 15,
                                               color: whiteColor),
                                         ),
@@ -260,10 +260,10 @@ class _HomeScreenState extends State<HomeScreen>
                   )
                 ],
               ),
-              Center(
+              const Center(
                   child: Text("explore",
                       style: TextStyle(fontSize: 20, color: Colors.white))),
-              Center(
+              const Center(
                   child: Text("user",
                       style: TextStyle(fontSize: 20, color: Colors.white))),
             ]),
@@ -274,8 +274,8 @@ class _HomeScreenState extends State<HomeScreen>
             TabsIcon(
               icons: SvgPicture.asset(
                 "lib/assets/icons/explore.svg",
-                height: 27,
-                width: 27,
+                height: UIConst.constSize.tabsIconSize,
+                width: UIConst.constSize.tabsIconSize,
                 colorFilter: ColorFilter.mode(
                     currentPage == 0 ? whiteColor : unselectedIconColor,
                     BlendMode.srcIn),
@@ -284,8 +284,8 @@ class _HomeScreenState extends State<HomeScreen>
             TabsIcon(
               icons: SvgPicture.asset(
                 "lib/assets/icons/planet.svg",
-                height: 27,
-                width: 27,
+                height: UIConst.constSize.tabsIconSize,
+                width: UIConst.constSize.tabsIconSize,
                 colorFilter: ColorFilter.mode(
                     currentPage == 1 ? whiteColor : unselectedIconColor,
                     BlendMode.srcIn),
@@ -294,8 +294,8 @@ class _HomeScreenState extends State<HomeScreen>
             TabsIcon(
               icons: SvgPicture.asset(
                 "lib/assets/icons/person.svg",
-                height: 27,
-                width: 27,
+                height: UIConst.constSize.tabsIconSize,
+                width: UIConst.constSize.tabsIconSize,
                 colorFilter: ColorFilter.mode(
                     currentPage == 2 ? whiteColor : unselectedIconColor,
                     BlendMode.srcIn),
