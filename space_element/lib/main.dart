@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space_element/screens/home_screen.dart';
+import 'package:space_element/screens/zoom_screen.dart';
+import 'package:space_element/utils/colors.dart';
 import 'package:space_element/utils/size_config.dart';
 
 void main() {
@@ -18,10 +20,10 @@ class MyApp extends StatelessWidget {
       title: 'SpaceElement',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: ZoomScreen(),
     );
   }
 }

@@ -200,19 +200,6 @@ class _HomeScreenState extends State<HomeScreen>
                                     );
                                   },
                                   child: Hero(
-                                    flightShuttleBuilder: (flightContext,
-                                        animation,
-                                        flightDirection,
-                                        fromHeroContext,
-                                        toHeroContext) {
-                                      final Hero toHero =
-                                          toHeroContext.widget as Hero;
-                                      return ScaleTransition(
-                                        scale: animation.drive(Tween<double>(
-                                            begin: 0.5, end: 1.0)),
-                                        child: toHero.child,
-                                      );
-                                    },
                                     tag: UIConst.planetImgList[index]
                                         ['planetName'],
                                     child: Image.asset(
