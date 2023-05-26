@@ -38,7 +38,7 @@ class TransparentAppbar extends StatelessWidget {
           leading: IconButton(
             onPressed: () {},
             icon: SvgPicture.asset(
-              'lib/assets/icons/menu.svg',
+              UIConst.images.menu,
               fit: BoxFit.cover,
             ),
           ),

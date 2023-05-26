@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:space_element/data/dummy_data.dart';
 import 'package:space_element/utils/colors.dart';
 import 'package:space_element/utils/constants/ui_constants.dart';
@@ -12,6 +11,7 @@ import 'package:space_element/utils/size_config.dart';
 import 'package:space_element/widgets/duel_text.dart';
 import 'package:floating_frosted_bottom_bar/floating_frosted_bottom_bar.dart';
 
+import '../widgets/custom_icon_tab_bar.dart';
 import '../widgets/transparent_appbar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return TransparentAppbar(
-      bgImage: 'lib/assets/images/home_bg.png',
+      bgImage: UIConst.images.bgHome,
       body: FrostedBottomBar(
         bottom: -3,
         alignment: Alignment.bottomCenter,
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen>
                               controller: planetController,
                               itemBuilder: (context, index) {
                                 return Image.asset(
-                                  "lib/assets/images/earth.png",
+                                  UIConst.images.earth,
                                   fit: BoxFit.cover,
                                 );
                               },
@@ -267,63 +267,8 @@ class _HomeScreenState extends State<HomeScreen>
                   child: Text("user",
                       style: TextStyle(fontSize: 20, color: Colors.white))),
             ]),
-        child: TabBar(
-          indicatorPadding: const EdgeInsets.fromLTRB(6, 0, 6, 0),
-          controller: tabController,
-          tabs: [
-            TabsIcon(
-              icons: SvgPicture.asset(
-                "lib/assets/icons/explore.svg",
-                height: UIConst.constSize.tabsIconSize,
-                width: UIConst.constSize.tabsIconSize,
-                colorFilter: ColorFilter.mode(
-                    currentPage == 0 ? whiteColor : unselectedIconColor,
-                    BlendMode.srcIn),
-              ),
-            ),
-            TabsIcon(
-              icons: SvgPicture.asset(
-                "lib/assets/icons/planet.svg",
-                height: UIConst.constSize.tabsIconSize,
-                width: UIConst.constSize.tabsIconSize,
-                colorFilter: ColorFilter.mode(
-                    currentPage == 1 ? whiteColor : unselectedIconColor,
-                    BlendMode.srcIn),
-              ),
-            ),
-            TabsIcon(
-              icons: SvgPicture.asset(
-                "lib/assets/icons/person.svg",
-                height: UIConst.constSize.tabsIconSize,
-                width: UIConst.constSize.tabsIconSize,
-                colorFilter: ColorFilter.mode(
-                    currentPage == 2 ? whiteColor : unselectedIconColor,
-                    BlendMode.srcIn),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TabsIcon extends StatelessWidget {
-  final double height;
-  final double width;
-  final Widget icons;
-
-  const TabsIcon(
-      {Key? key, this.height = 70, this.width = 50, required this.icons})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: width,
-      child: Center(
-        child: icons,
+        child: CustomIconTabBar(
+            tabController: tabController, currentPage: currentPage),
       ),
     );
   }
