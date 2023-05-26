@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     currentPage = 0;
-    tabController = TabController(length: 5, vsync: this);
+    tabController = TabController(length: 3, vsync: this);
     tabController.animation!.addListener(
       () {
         final value = tabController.animation!.value.round();
@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen>
                       height: SizeConfig.safeBlockVertical * 2.5,
                     ),
                     SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           SizedBox(
@@ -249,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                left: SizeConfig.safeBlockHorizontal * 13,
+                                left: SizeConfig.safeBlockHorizontal * 11,
                                 top: SizeConfig.safeBlockHorizontal * 1),
                             child: Align(
                               alignment: Alignment.topLeft,
@@ -320,6 +320,12 @@ class _HomeScreenState extends State<HomeScreen>
                     )
                   ],
                 ),
+                Center(
+                    child: Text("explore",
+                        style: TextStyle(fontSize: 20, color: Colors.white))),
+                Center(
+                    child: Text("user",
+                        style: TextStyle(fontSize: 20, color: Colors.white))),
               ]),
           child: TabBar(
             indicatorPadding: const EdgeInsets.fromLTRB(6, 0, 6, 0),
