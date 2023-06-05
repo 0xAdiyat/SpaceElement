@@ -1,6 +1,6 @@
 # SpaceElement
 
-SpaceElement is an incredible mobile application that allows you to delve into the awe-inspiring realm of outer space, all from the convenience of your fingertips. With its captivating visuals, interactive tours, and engaging quizzes, this app is designed to ignite your cosmic curiosity and take you on an extraordinary journey through the universe.
+SpaceElement is an incredible mobile application that allows you to delve into the awe-inspiring realm of outer space, all from the convenience of your fingertips. With its captivating visuals, interactive tours, and engaging quizzes, this app is designed to ignite your cosmic curiosity and take you on an extraordinary journey through the universe. (Am currently working on it)
 
 ![ui design](https://github.com/0xAdiyat/SpaceElement/assets/67780459/e5575a48-821a-490f-a7a8-c5f0f901253e)
 
