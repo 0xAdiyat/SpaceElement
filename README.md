@@ -45,16 +45,19 @@ To install SpaceElement, follow these steps:
 - Flutter SDK (version 2.0.0 or later)
 - Dart (version 2.12.0 or later)
 
-## Contributing
-
-We welcome contributions from anyone interested in improving SpaceElement. If you encounter any bugs, have suggestions for new features, or would like to contribute code enhancements, please feel free to submit a pull request. Make sure to review our [contribution guidelines](CONTRIBUTING.md) before getting started.
-
 ## License
-
 SpaceElement is licensed under the [MIT License](LICENSE).
 
-## Contact
 
-For any inquiries or support, please contact our team at spaceelement.support@example.com.
+> [!IMPORTANT]  
+> If you wish to contribute a change to any of the existing features or add new to this repo,
+> please feel free to contribute,
+> and send a [pull request](https://github.com/0xAdiyat/SpaceELement/pulls). I welcome and encourage all pull requests. It usually takes me within 24-48 hours to respond to any issue or request.
 
-Join us on our cosmic journey and explore the wonders of the universe with SpaceElement!
+
+## Author
+@0xAdiyat
+
+<br>
+<p align="right">● <a href="#description">back to top</a></p>
+
